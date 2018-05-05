@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <display-name>StudentsServlet</display-name>
+    <servlet>
+        <servlet-name>auth</servlet-name>
+        <servlet-class>ru.innopolis.vasiliev.studentsproj.servlets.AuthServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>auth</servlet-name>
+        <url-pattern>/auth</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>adminArea</servlet-name>
+        <servlet-class>ru.innopolis.vasiliev.studentsproj.servlets.AdminServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>adminArea</servlet-name>
+        <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+</web-app>

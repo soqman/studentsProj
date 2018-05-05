@@ -1,0 +1,5 @@
+package ru.innopolis.vasiliev.studentsproj.pojo;
+
+public enum AuthResult {
+    INVALID_LOGIN,INVALID_PASSWORD,ACCESS_GRANTED_STUDENT,ACCESS_GRANTED_ADMINISTRATOR, ACCESS_GRANTED_TEACHER, ERROR
+}
