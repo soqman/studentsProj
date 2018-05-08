@@ -8,9 +8,9 @@ public class ConnectionManagerJDBCImpl implements ConnectionManager {
     private static ConnectionManager connectionManager;
 
     private static final String DRIVERCLASS = "org.postgresql.Driver";
-    private static final String PSTGRURS = "jdbc:postgresql://localhost:5432/StudentsProj";
-    private static final String PSTGRUSER = "vvn";
-    private static final String PSTGRUSERPASSWORD = "password";
+    private static final String PSTGRURS = "jdbc:postgresql://localhost:5432/studentsproj_vvn";
+    private static final String PSTGRUSER = "postgres";
+    private static final String PSTGRUSERPASSWORD = "sa";
 
     public static ConnectionManager getInstance(){
         if(connectionManager==null){

@@ -6,18 +6,30 @@
     <display-name>StudentsServlet</display-name>
     <servlet>
         <servlet-name>auth</servlet-name>
-        <servlet-class>ru.innopolis.vasiliev.studentsproj.servlets.AuthServlet</servlet-class>
+        <servlet-class>ru.innopolis.vasiliev.studentsproj.controller.AuthServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>auth</servlet-name>
         <url-pattern>/auth</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>adminArea</servlet-name>
-        <servlet-class>ru.innopolis.vasiliev.studentsproj.servlets.AdminServlet</servlet-class>
+        <servlet-name>dashboard</servlet-name>
+        <servlet-class>ru.innopolis.vasiliev.studentsproj.controller.DashboardServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>adminArea</servlet-name>
-        <url-pattern>/admin</url-pattern>
+        <servlet-name>dashboard</servlet-name>
+        <url-pattern>/dashboard</url-pattern>
     </servlet-mapping>
+    <filter>
+        <filter-name>auth-filter</filter-name>
+        <filter-class>ru.innopolis.vasiliev.studentsproj.controller.filter.AuthFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>auth-filter</filter-name>
+        <url-pattern>/dashboard/*</url-pattern>
+    </filter-mapping>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/errors.jsp</location>
+    </error-page>
 </web-app>

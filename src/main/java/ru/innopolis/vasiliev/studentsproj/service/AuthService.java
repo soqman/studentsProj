@@ -10,12 +10,12 @@ import java.sql.SQLException;
 
 public class AuthService {
     final static Logger logger=LogManager.getLogger(AuthService.class);
-    public AuthResult checkAccess(String login, int passwordHash, UserDAO userDAO){
+    public AuthResult checkAccess(String login, String passwordHash, UserDAO userDAO){
         User user=null;
         try {
             user = userDAO.getUserByLogin(login);
             if (user==null) return AuthResult.INVALID_LOGIN;
-            if (user.getPasswordHash()==passwordHash){
+            if (user.getPasswordHash().equals(passwordHash)){
                 switch (user.getUserType()) {
                     case Student:
                         return AuthResult.ACCESS_GRANTED_STUDENT;

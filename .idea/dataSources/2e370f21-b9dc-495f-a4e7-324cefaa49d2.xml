@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="StudentsProj@localhost">
+<dataSource name="studentsproj_vvn@localhost">
   <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.8">
     <root id="1">
       <ServerVersion>10.3</ServerVersion>
     </root>
-    <database id="2" parent="1" name="StudentsProj">
+    <database id="2" parent="1" name="mobile">
+      <ObjectId>16521</ObjectId>
+    </database>
+    <database id="3" parent="1" name="postgres">
+      <ObjectId>12292</ObjectId>
+      <Comment>default administrative connection database</Comment>
+    </database>
+    <database id="4" parent="1" name="studentsproj_vvn">
       <ObjectId>16478</ObjectId>
       <Current>1</Current>
       <Visible>1</Visible>
-    </database>
-    <database id="3" parent="1" name="mobile">
-      <ObjectId>16521</ObjectId>
-    </database>
-    <database id="4" parent="1" name="postgres">
-      <ObjectId>12292</ObjectId>
-      <Comment>default administrative connection database</Comment>
     </database>
     <role id="5" parent="1" name="pg_monitor">
       <ObjectId>3373</ObjectId>
@@ -61,28 +61,28 @@
       <CanLogin>1</CanLogin>
       <ConnectionLimit>-1</ConnectionLimit>
     </role>
-    <schema id="12" parent="2" name="information_schema">
+    <schema id="12" parent="4" name="information_schema">
       <ObjectId>12002</ObjectId>
     </schema>
-    <schema id="13" parent="2" name="pg_catalog">
+    <schema id="13" parent="4" name="pg_catalog">
       <ObjectId>11</ObjectId>
       <Comment>system catalog schema</Comment>
     </schema>
-    <schema id="14" parent="2" name="pg_temp_1">
+    <schema id="14" parent="4" name="pg_temp_1">
       <ObjectId>11736</ObjectId>
     </schema>
-    <schema id="15" parent="2" name="pg_toast">
+    <schema id="15" parent="4" name="pg_toast">
       <ObjectId>99</ObjectId>
       <Comment>reserved schema for TOAST tables</Comment>
     </schema>
-    <schema id="16" parent="2" name="pg_toast_temp_1">
+    <schema id="16" parent="4" name="pg_toast_temp_1">
       <ObjectId>11737</ObjectId>
     </schema>
-    <schema id="17" parent="2" name="public">
+    <schema id="17" parent="4" name="public">
       <ObjectId>2200</ObjectId>
       <Comment>standard public schema</Comment>
-      <IntrospectionTimestamp>2018-05-05.13:45:12.039</IntrospectionTimestamp>
-      <IntrospectionStateNumber>612</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-05-08.14:55:21.632</IntrospectionTimestamp>
+      <IntrospectionStateNumber>831</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -104,37 +104,60 @@
     </sequence>
     <table id="20" parent="17" name="grades">
       <ObjectId>16507</ObjectId>
-      <StateNumber>579</StateNumber>
+      <StateNumber>819</StateNumber>
     </table>
     <table id="21" parent="17" name="subjects">
       <ObjectId>16490</ObjectId>
-      <StateNumber>583</StateNumber>
+      <StateNumber>816</StateNumber>
     </table>
     <table id="22" parent="17" name="users">
       <ObjectId>16479</ObjectId>
-      <StateNumber>582</StateNumber>
+      <StateNumber>830</StateNumber>
     </table>
-    <column id="23" parent="20" name="subject_id">
-      <Position>1</Position>
-      <DataType>integer|0s</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>578</StateNumber>
-      <TypeId>23</TypeId>
-    </column>
-    <column id="24" parent="20" name="user_id">
+    <column id="23" parent="20" name="user_id">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>578</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="25" parent="20" name="grade">
+    <column id="24" parent="20" name="grade">
       <Position>3</Position>
       <DataType>varchar(10)|0s</DataType>
       <StateNumber>580</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="26" parent="21" name="subject_id">
+    <column id="25" parent="20" name="subject_id">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>815</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <foreign-key id="26" parent="20" name="user_id">
+      <ObjectId>16569</ObjectId>
+      <Deferrable>1</Deferrable>
+      <ColNames>user_id</ColNames>
+      <RefTableId>16479</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>users</RefTableName>
+      <RefKeyName>users_pkey</RefKeyName>
+      <RefColNames>user_id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <foreign-key id="27" parent="20" name="subject_id">
+      <ObjectId>16564</ObjectId>
+      <Deferrable>1</Deferrable>
+      <ColNames>subject_id</ColNames>
+      <RefTableId>16490</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>subjects</RefTableName>
+      <RefKeyName>subjects_pkey</RefKeyName>
+      <RefColNames>subject_id</RefColNames>
+      <OnDelete>cascade</OnDelete>
+      <OnUpdate>cascade</OnUpdate>
+    </foreign-key>
+    <column id="28" parent="21" name="subject_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -143,31 +166,31 @@
       <TypeId>23</TypeId>
       <SequenceName>subjects_subject_id_seq</SequenceName>
     </column>
-    <column id="27" parent="21" name="name">
+    <column id="29" parent="21" name="name">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>576</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="28" parent="21" name="teacher_id">
+    <column id="30" parent="21" name="teacher_id">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <StateNumber>576</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="29" parent="21" name="subjects_pkey">
+    <index id="31" parent="21" name="subjects_pkey">
       <ObjectId>16502</ObjectId>
       <ColNames>subject_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="30" parent="21" name="subjects_pkey">
+    <key id="32" parent="21" name="subjects_pkey">
       <ObjectId>16503</ObjectId>
       <ColNames>subject_id</ColNames>
       <UnderlyingIndexName>subjects_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="31" parent="21" name="subject_id">
+    <foreign-key id="33" parent="21" name="subject_id">
       <ObjectId>16515</ObjectId>
       <ColNames>subject_id</ColNames>
       <RefTableId>16490</RefTableId>
@@ -176,7 +199,7 @@
       <RefKeyName>subjects_pkey</RefKeyName>
       <RefColNames>subject_id</RefColNames>
     </foreign-key>
-    <foreign-key id="32" parent="21" name="teacher_id">
+    <foreign-key id="34" parent="21" name="teacher_id">
       <ObjectId>16510</ObjectId>
       <ColNames>teacher_id</ColNames>
       <RefTableId>16479</RefTableId>
@@ -185,7 +208,7 @@
       <RefKeyName>users_pkey</RefKeyName>
       <RefColNames>user_id</RefColNames>
     </foreign-key>
-    <column id="33" parent="22" name="user_id">
+    <column id="35" parent="22" name="user_id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
@@ -194,33 +217,33 @@
       <TypeId>23</TypeId>
       <SequenceName>users_user_id_seq</SequenceName>
     </column>
-    <column id="34" parent="22" name="user_type">
+    <column id="36" parent="22" name="user_type">
       <Position>2</Position>
-      <DataType>varchar(10)|0s</DataType>
+      <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>574</StateNumber>
+      <StateNumber>674</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="35" parent="22" name="password_hash">
+    <column id="37" parent="22" name="password_hash">
       <Position>3</Position>
-      <DataType>integer|0s</DataType>
+      <DataType>varchar(32)|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>597</StateNumber>
-      <TypeId>23</TypeId>
+      <StateNumber>831</StateNumber>
+      <TypeId>1043</TypeId>
     </column>
-    <column id="36" parent="22" name="login">
+    <column id="38" parent="22" name="login">
       <Position>4</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <StateNumber>574</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <index id="37" parent="22" name="users_pkey">
+    <index id="39" parent="22" name="users_pkey">
       <ObjectId>16488</ObjectId>
       <ColNames>user_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="38" parent="22" name="users_pkey">
+    <key id="40" parent="22" name="users_pkey">
       <ObjectId>16489</ObjectId>
       <ColNames>user_id</ColNames>
       <UnderlyingIndexName>users_pkey</UnderlyingIndexName>

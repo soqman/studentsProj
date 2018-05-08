@@ -20,7 +20,7 @@ public class UserDAOImpl implements UserDAO {
         ResultSet resultSet = statement.executeQuery();
         User user = null;
         while (resultSet.next()) {
-            user = new User(resultSet.getInt("user_id"), resultSet.getString("login"), resultSet.getInt("password_hash"), UserType.valueOf(resultSet.getString("user_type")));
+            user = new User(resultSet.getInt("user_id"), resultSet.getString("login"), resultSet.getString("password_hash"), UserType.valueOf(resultSet.getString("user_type")));
         }
         connection.close();
         return user;
@@ -34,18 +34,18 @@ public class UserDAOImpl implements UserDAO {
         ResultSet resultSet = statement.executeQuery();
         User user = null;
         while (resultSet.next()) {
-            user = new User(resultSet.getInt("user_id"), resultSet.getString("login"), resultSet.getInt("password_hash"), UserType.valueOf(resultSet.getString("user_type")));
+            user = new User(resultSet.getInt("user_id"), resultSet.getString("login"), resultSet.getString("password_hash"), UserType.valueOf(resultSet.getString("user_type")));
         }
         connection.close();
         return user;
     }
 
     @Override
-    public int addUser(String login,int passwordHash,UserType userType)throws SQLException  {
+    public int addUser(String login,String passwordHash,UserType userType)throws SQLException  {
         Connection connection = connectionManager.getConnection();
         PreparedStatement statement = connection.prepareStatement("INSERT INTO users (user_id, user_type, password_hash, login) VALUES (DEFAULT, ?, ?, ?)",Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, userType.toString());
-        statement.setInt(2,passwordHash);
+        statement.setString(2,passwordHash);
         statement.setString(3,login);
         int i = statement.executeUpdate();
         ResultSet resultSet = statement.getGeneratedKeys();
@@ -62,7 +62,7 @@ public class UserDAOImpl implements UserDAO {
         Connection connection = connectionManager.getConnection();
         PreparedStatement statement = connection.prepareStatement("UPDATE users SET user_type = ?,password_hash=?,login=? WHERE user_id = ?");
         statement.setString(1, user.getUserType().toString());
-        statement.setInt(2,user.getPasswordHash());
+        statement.setString(2,user.getPasswordHash());
         statement.setString(3,user.getLogin());
         statement.setInt(4,user.getUser_id());
         int i =statement.executeUpdate();

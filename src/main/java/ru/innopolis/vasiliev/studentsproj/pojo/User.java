@@ -16,7 +16,7 @@ public class User {
         return Objects.hash(user_id);
     }
 
-    public User(int user_id, String login, int passwordHash, UserType userType) {
+    public User(int user_id, String login, String passwordHash, UserType userType) {
         this.user_id=user_id;
         this.login = login;
         this.passwordHash = passwordHash;
@@ -31,11 +31,11 @@ public class User {
         this.login = login;
     }
 
-    public int getPasswordHash() {
+    public String getPasswordHash() {
         return passwordHash;
     }
 
-    public void setPasswordHash(int passwordHash) {
+    public void setPasswordHash(String passwordHash) {
         this.passwordHash = passwordHash;
     }
 
@@ -48,7 +48,7 @@ public class User {
     }
 
     private String login;
-    private int passwordHash;
+    private String passwordHash;
     private UserType userType;
     private int user_id;
 
