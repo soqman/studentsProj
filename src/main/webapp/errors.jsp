@@ -15,6 +15,8 @@
     <title>Error page</title>
     <meta name="description" content="Error page">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel=”icon” type=”image/x-icon” href=”favicon.ico” />
 </head>
 <body>
 <header>

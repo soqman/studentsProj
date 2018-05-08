@@ -14,6 +14,8 @@
     <title>Dashboard</title>
     <meta name="description" content="Dashboard">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel=”icon” type=”image/x-icon” href=”favicon.ico” />
 </head>
 <body>
 <header>
@@ -21,8 +23,8 @@
     <nav>
         <ul>
             <li><a href="${pageContext.request.contextPath}/dashboard">Home</a>
-            <li><a href="${pageContext.request.contextPath}/subjects">Subjects</a>
-            <li><a href="${pageContext.request.contextPath}/users">Users</a>
+            <li><a href="${pageContext.request.contextPath}/dashboard?page=1">Subjects</a>
+            <li><a href="${pageContext.request.contextPath}/dashboard?page=2">Users</a>
             <li>
         </ul>
     </nav>
@@ -33,8 +35,7 @@
 <section id="pageContent">
     <main role="main">
         <article>
-            <h2>Stet facilis ius te</h2>
-            <p>Lorem ipsum dolor sit amet, nonumes voluptatum mel ea, cu case ceteros cum. Novum commodo malorum vix ut. Dolores consequuntur in ius, sale electram dissentiunt quo te. Cu duo omnes invidunt, eos eu mucius fabellas. Stet facilis ius te, quando voluptatibus eos in. Ad vix mundi alterum, integre urbanitas intellegam vix in.</p>
+            <%=request.getAttribute("content")!=null?(String)request.getAttribute("content"):""%>
         </article>
     </main>
     <aside>

@@ -14,6 +14,8 @@
     <title>Sign in</title>
     <meta name="description" content="Login">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/images/favicon.ico">
+    <link rel=”icon” type=”image/x-icon” href=”favicon.ico” />
 </head>
 <body>
 <header>
@@ -27,8 +29,8 @@
 </section>
 <section>
     <form action="${pageContext.request.contextPath}/auth" method="post">
-        <input type="text" value="" name="login"> <span> - login</span><BR><BR>
-        <input type=password value="" name="password"> <span> - password</span><BR><BR>
+        <input type="text" value="" name="login"> <span> login</span><BR><BR>
+        <input type=password value="" name="password"> <span> password</span><BR><BR>
         <input type="submit" value="OK"><BR><BR>
     </form>
 </section>
