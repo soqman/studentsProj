@@ -20,8 +20,8 @@ public class AuthServiceTest {
     private static int user_id;
     private static final String VALID_LOGIN="vlogin";
     private static final String INVALID_LOGIN="ivlogin";
-    private static final int VALID_PASS=1;
-    private static final int INVALID_PASS=-1;
+    private static final String VALID_PASS="1";
+    private static final String INVALID_PASS="-1";
     private static final UserType VALID_USERTYPE=UserType.Administrator;
 
     @Test

@@ -11,6 +11,9 @@ import ru.innopolis.vasiliev.studentsproj.pojo.Subject;
 import ru.innopolis.vasiliev.studentsproj.pojo.User;
 import ru.innopolis.vasiliev.studentsproj.pojo.UserType;
 import java.sql.SQLException;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Matchers.anyObject;
@@ -22,22 +25,23 @@ public class SubjectEditorServiceTest {
     private static final Logger logger=LogManager.getLogger(SubjectEditorServiceTest.class);
     private static final String subject_name="TESTSUBJECT";
     private static final String subject_exists_name="EXISTTESTSUBJECT";
-    private static final String teacher_name="TESTTEACHER";
+    private static final String name="TESTUSER";
     private static int subject_id=1;
     private static final int subject_exists_id=2;
     private static final int user_id=1;
     private static final int teacher_id=2;
     private static Subject existSubject=new Subject(subject_exists_id,subject_exists_name,0);
-    private static User someUser=new User(user_id,teacher_name,123,UserType.Student);
-    private static User teacher=new User(teacher_id,teacher_name,123,UserType.Teacher);
+    private static User someUser=new User(user_id,name,"123",UserType.Student);
+    private static User teacher=new User(teacher_id,name,"123",UserType.Teacher);
     private static final SubjectDAO subjectDAO=mock(SubjectDAO.class);
     private static final UserDAO userDAO=mock(UserDAO.class);
     private static final GradeDAO gradeDAO=mock(GradeDAO.class);
     private static final SubjectsEditorService subjectsEditorService=new SubjectsEditorService();
-
+    private static HashSet<Subject>subjects=new HashSet<>();
 
     @BeforeClass
     public static void mockDAO()throws SQLException{
+        subjects.add(existSubject);
         when(subjectDAO.addSubject(subject_name)).thenReturn(subject_id);
         when(subjectDAO.getSubjectById(subject_exists_id)).thenReturn(existSubject);
         when(subjectDAO.getSubjectByName(subject_exists_name)).thenReturn(existSubject);
@@ -45,6 +49,10 @@ public class SubjectEditorServiceTest {
         when(subjectDAO.deleteSubject(subject_id)).thenReturn(false);
         when(userDAO.getUserById(user_id)).thenReturn(someUser);
         when(userDAO.getUserById(teacher_id)).thenReturn(teacher);
+        when(userDAO.getUserByLogin("teacher_login")).thenReturn(teacher);
+        when(userDAO.getUserByLogin(name)).thenReturn(someUser);
+        when(subjectDAO.getSubjectListByTeacherId(teacher_id)).thenReturn(subjects);
+        when(subjectDAO.getSubjectListByStudentId(user_id)).thenReturn(null);
         when(subjectDAO.updateSubject(anyObject())).thenReturn(true);
         when(gradeDAO.setGrade(anyInt(),anyInt(),eq(Grade.NULL))).thenReturn(true);
         when(gradeDAO.deleteGrade(anyInt(),anyInt())).thenReturn(true);
@@ -89,5 +97,14 @@ public class SubjectEditorServiceTest {
         Assert.assertTrue(result==1);
         result=subjectsEditorService.deleteStudent(subject_id,teacher_id,gradeDAO,userDAO);
         Assert.assertTrue(result==-3);
+    }
+
+    @Test
+    public void getSubjectsForUserTest(){
+        Set<Subject> s=subjectsEditorService.getSubjectsForUser("teacher_login",userDAO,subjectDAO);
+        Assert.assertTrue(subjects.equals(s));
+        s=subjectsEditorService.getSubjectsForUser(name,userDAO,subjectDAO);
+        Assert.assertTrue(s==null);
+
     }
 }

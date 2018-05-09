@@ -11,11 +11,11 @@ private int teacher_id;
         this.teacher_id = teacher_id;
     }
 
-    public int getSubject_id() {
+    public int getSubjectId() {
         return subject_id;
     }
 
-    public void setSubject_id(int subject_id) {
+    public void setSubjectId(int subject_id) {
         this.subject_id = subject_id;
     }
 
@@ -27,11 +27,11 @@ private int teacher_id;
         this.name = name;
     }
 
-    public int getTeacher_id() {
+    public int getTeacherId() {
         return teacher_id;
     }
 
-    public void setTeacher_id(int teacher_id) {
+    public void setTeacherId(int teacher_id) {
         this.teacher_id = teacher_id;
     }
 }

@@ -8,7 +8,9 @@ import java.util.HashSet;
 public interface SubjectDAO {
     public Subject getSubjectById(int id)throws SQLException;
     public Subject getSubjectByName(String name)throws SQLException;
-    public HashSet<Subject> getSubjectListByUserId(int user_id)throws SQLException;
+    public HashSet<Subject> getSubjectListByStudentId(int student_id)throws SQLException;
+    public HashSet<Subject> getSubjectListByTeacherId(int teacher_id)throws SQLException;
+    public HashSet<Subject> getAllSubjectsList()throws SQLException;
     public int addSubject(String name, int teacher_id)throws SQLException;
     public int addSubject(String name)throws SQLException;
     public boolean updateSubject(Subject subject)throws SQLException;

@@ -41,15 +41,39 @@ public class SubjectDAOImpl implements SubjectDAO {
     }
 
     @Override
-    public HashSet<Subject> getSubjectListByUserId(int user_id)throws SQLException {
+    public HashSet<Subject> getSubjectListByStudentId(int student_id)throws SQLException {
         Connection connection = connectionManager.getConnection();
         PreparedStatement statement = connection.prepareStatement("SELECT subject_id FROM grades where user_id=?");
-        statement.setInt(1, user_id);
-        SubjectDAOImpl subjectDAO=new SubjectDAOImpl();
+        statement.setInt(1, student_id);
         ResultSet resultSet = statement.executeQuery();
         HashSet<Subject> subjects=new HashSet<>();
         while (resultSet.next()) {
-            subjects.add(subjectDAO.getSubjectById(resultSet.getInt("subject_id")));
+            subjects.add(getSubjectById(resultSet.getInt("subject_id")));
+        }
+        return subjects;
+    }
+
+    @Override
+    public HashSet<Subject> getSubjectListByTeacherId(int teacher_id)throws SQLException {
+        Connection connection = connectionManager.getConnection();
+        PreparedStatement statement = connection.prepareStatement("SELECT subject_id FROM subjects where teacher_id=?");
+        statement.setInt(1, teacher_id);
+        ResultSet resultSet = statement.executeQuery();
+        HashSet<Subject> subjects=new HashSet<>();
+        while (resultSet.next()) {
+            subjects.add(getSubjectById(resultSet.getInt("subject_id")));
+        }
+        return subjects;
+    }
+
+    @Override
+    public HashSet<Subject> getAllSubjectsList() throws SQLException {
+        Connection connection = connectionManager.getConnection();
+        PreparedStatement statement = connection.prepareStatement("SELECT subject_id FROM subjects");
+        ResultSet resultSet = statement.executeQuery();
+        HashSet<Subject> subjects=new HashSet<>();
+        while (resultSet.next()) {
+            subjects.add(getSubjectById(resultSet.getInt("subject_id")));
         }
         return subjects;
     }
@@ -91,9 +115,9 @@ public class SubjectDAOImpl implements SubjectDAO {
         Connection connection = connectionManager.getConnection();
         PreparedStatement statement = connection.prepareStatement("UPDATE subjects SET name = ?,teacher_id=? WHERE subject_id = ?");
         statement.setString(1, subject.getName());
-        if(subject.getTeacher_id()==0)statement.setNull(2,Types.INTEGER);
-        else statement.setInt(2,subject.getTeacher_id());
-        statement.setInt(3,subject.getSubject_id());
+        if(subject.getTeacherId()==0)statement.setNull(2,Types.INTEGER);
+        else statement.setInt(2,subject.getTeacherId());
+        statement.setInt(3,subject.getSubjectId());
         int i =statement.executeUpdate();
         connection.close();
         return i>0?true:false;

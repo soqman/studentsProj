@@ -18,9 +18,9 @@ public class AuthFilter implements Filter {
         if (httpSession.getAttribute("login") != null) {
             chain.doFilter(request, response);
         } else {
-            HttpServletResponse httpServletRespoonse = (HttpServletResponse) response;
+            HttpServletResponse httpServletResponse = (HttpServletResponse) response;
             HttpServletRequest httpServletRequest = (HttpServletRequest) request;
-            httpServletRespoonse.sendRedirect(httpServletRequest.getContextPath() + "/auth?errorMsg=noAuth");
+            httpServletResponse.sendRedirect(httpServletRequest.getContextPath() + "/auth?errorMsg=noAuth");
         }
     }
 
