@@ -3,18 +3,18 @@ package ru.innopolis.vasiliev.studentsproj.db.dao;
 import ru.innopolis.vasiliev.studentsproj.pojo.Subject;
 
 import java.sql.SQLException;
-import java.util.HashSet;
+import java.util.Set;
 
 public interface SubjectDAO {
-    public Subject getSubjectById(int id)throws SQLException;
-    public Subject getSubjectByName(String name)throws SQLException;
-    public HashSet<Subject> getSubjectListByStudentId(int student_id)throws SQLException;
-    public HashSet<Subject> getSubjectListByTeacherId(int teacher_id)throws SQLException;
-    public HashSet<Subject> getAllSubjectsList()throws SQLException;
-    public int addSubject(String name, int teacher_id)throws SQLException;
-    public int addSubject(String name)throws SQLException;
-    public boolean updateSubject(Subject subject)throws SQLException;
-    public boolean deleteSubject(int id)throws SQLException;
+    Subject getSubjectById(int id)throws SQLException;
+    Subject getSubjectByName(String name)throws SQLException;
+    Set<Subject> getSubjectListByStudentId(int studentId)throws SQLException;
+    Set<Subject> getSubjectListByTeacherId(int teacherId)throws SQLException;
+    Set<Subject> getAllSubjectsList()throws SQLException;
+    int addSubject(String name, int teacherId)throws SQLException;
+    int addSubject(String name)throws SQLException;
+    boolean updateSubject(Subject subject)throws SQLException;
+    boolean deleteSubject(int id)throws SQLException;
 
 
 

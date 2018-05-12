@@ -1,41 +1,41 @@
-2018-05-09 18:49:24,778 main DEBUG Initializing configuration org.apache.logging.log4j.core.config.properties.PropertiesConfiguration@1a8a8f7c
-2018-05-09 18:49:24,778 main DEBUG Installed 1 script engine
-2018-05-09 18:49:24,996 main DEBUG Oracle Nashorn version: 1.8.0_162, language: ECMAScript, threading: Not Thread Safe, compile: true, names: [nashorn, Nashorn, js, JS, JavaScript, javascript, ECMAScript, ecmascript], factory class: jdk.nashorn.api.scripting.NashornScriptEngineFactory
-2018-05-09 18:49:24,996 main DEBUG PluginManager 'Core' found 116 plugins
-2018-05-09 18:49:24,996 main DEBUG PluginManager 'Level' found 0 plugins
-2018-05-09 18:49:24,996 main DEBUG PluginManager 'Lookup' found 13 plugins
-2018-05-09 18:49:24,996 main DEBUG Building Plugin[name=AppenderRef, class=org.apache.logging.log4j.core.config.AppenderRef].
-2018-05-09 18:49:25,012 main DEBUG PluginManager 'TypeConverter' found 26 plugins
-2018-05-09 18:49:25,028 main DEBUG createAppenderRef(ref="STDOUT", level="null", Filter=null)
-2018-05-09 18:49:25,028 main DEBUG Building Plugin[name=root, class=org.apache.logging.log4j.core.config.LoggerConfig$RootLogger].
-2018-05-09 18:49:25,028 main DEBUG createLogger(additivity="null", level="DEBUG", includeLocation="null", ={STDOUT}, ={}, Configuration(PropertiesConfig), Filter=null)
-2018-05-09 18:49:25,028 main DEBUG Building Plugin[name=loggers, class=org.apache.logging.log4j.core.config.LoggersPlugin].
-2018-05-09 18:49:25,028 main DEBUG createLoggers(={root})
-2018-05-09 18:49:25,028 main DEBUG Building Plugin[name=filter, class=org.apache.logging.log4j.core.filter.ThresholdFilter].
-2018-05-09 18:49:25,028 main DEBUG createFilter(level="DEBUG", onMatch="null", onMismatch="null")
-2018-05-09 18:49:25,028 main DEBUG Building Plugin[name=layout, class=org.apache.logging.log4j.core.layout.PatternLayout].
-2018-05-09 18:49:25,043 main DEBUG PatternLayout$Builder(pattern="%m%n", PatternSelector=null, Configuration(PropertiesConfig), Replace=null, charset="null", alwaysWriteExceptions="null", disableAnsi="null", noConsoleNoAnsi="null", header="null", footer="null")
-2018-05-09 18:49:25,043 main DEBUG PluginManager 'Converter' found 44 plugins
-2018-05-09 18:49:25,043 main DEBUG Building Plugin[name=appender, class=org.apache.logging.log4j.core.appender.ConsoleAppender].
-2018-05-09 18:49:25,043 main DEBUG ConsoleAppender$Builder(target="null", follow="null", direct="null", bufferedIo="null", bufferSize="null", immediateFlush="null", ignoreExceptions="null", PatternLayout(%m%n), name="STDOUT", Configuration(PropertiesConfig), ThresholdFilter(DEBUG))
-2018-05-09 18:49:25,043 main DEBUG Starting OutputStreamManager SYSTEM_OUT.false.false
-2018-05-09 18:49:25,043 main DEBUG Building Plugin[name=appenders, class=org.apache.logging.log4j.core.config.AppendersPlugin].
-2018-05-09 18:49:25,043 main DEBUG createAppenders(={STDOUT})
-2018-05-09 18:49:25,043 main DEBUG Building Plugin[name=filter, class=org.apache.logging.log4j.core.filter.ThresholdFilter].
-2018-05-09 18:49:25,043 main DEBUG createFilter(level="DEBUG", onMatch="null", onMismatch="null")
-2018-05-09 18:49:25,043 main DEBUG Configuration org.apache.logging.log4j.core.config.properties.PropertiesConfiguration@1a8a8f7c initialized
-2018-05-09 18:49:25,043 main DEBUG Starting configuration org.apache.logging.log4j.core.config.properties.PropertiesConfiguration@1a8a8f7c
-2018-05-09 18:49:25,043 main DEBUG Started configuration org.apache.logging.log4j.core.config.properties.PropertiesConfiguration@1a8a8f7c OK.
-2018-05-09 18:49:25,043 main DEBUG Shutting down OutputStreamManager SYSTEM_OUT.false.false-1
-2018-05-09 18:49:25,043 main DEBUG Shut down OutputStreamManager SYSTEM_OUT.false.false-1, all resources released: true
-2018-05-09 18:49:25,043 main DEBUG Appender DefaultConsole-1 stopped with status true
-2018-05-09 18:49:25,043 main DEBUG Stopped org.apache.logging.log4j.core.config.DefaultConfiguration@33a10788 OK
-2018-05-09 18:49:25,090 main DEBUG Registering MBean org.apache.logging.log4j2:type=18b4aac2
-2018-05-09 18:49:25,090 main DEBUG Registering MBean org.apache.logging.log4j2:type=18b4aac2,component=StatusLogger
-2018-05-09 18:49:25,090 main DEBUG Registering MBean org.apache.logging.log4j2:type=18b4aac2,component=ContextSelector
-2018-05-09 18:49:25,090 main DEBUG Registering MBean org.apache.logging.log4j2:type=18b4aac2,component=Loggers,name=
-2018-05-09 18:49:25,090 main DEBUG Registering MBean org.apache.logging.log4j2:type=18b4aac2,component=Appenders,name=STDOUT
-2018-05-09 18:49:25,090 main DEBUG org.apache.logging.log4j.core.util.SystemClock does not support precise timestamps.
-2018-05-09 18:49:25,090 main DEBUG Reconfiguration complete for context[name=18b4aac2] at URI D:\J\studentsproj\out\test\classes\log4j2.properties (org.apache.logging.log4j.core.LoggerContext@77f80c04) with optional ClassLoader: null
-2018-05-09 18:49:25,090 main DEBUG Shutdown hook enabled. Registering a new one.
-2018-05-09 18:49:25,090 main DEBUG LoggerContext[name=18b4aac2, org.apache.logging.log4j.core.LoggerContext@77f80c04] started OK.
+2018-05-12 17:46:31,879 Test worker DEBUG Initializing configuration org.apache.logging.log4j.core.config.properties.PropertiesConfiguration@1b29f014
+2018-05-12 17:46:31,894 Test worker DEBUG Installed 1 script engine
+2018-05-12 17:46:32,041 Test worker DEBUG Oracle Nashorn version: 1.8.0_162, language: ECMAScript, threading: Not Thread Safe, compile: true, names: [nashorn, Nashorn, js, JS, JavaScript, javascript, ECMAScript, ecmascript], factory class: jdk.nashorn.api.scripting.NashornScriptEngineFactory
+2018-05-12 17:46:32,041 Test worker DEBUG PluginManager 'Core' found 116 plugins
+2018-05-12 17:46:32,041 Test worker DEBUG PluginManager 'Level' found 0 plugins
+2018-05-12 17:46:32,041 Test worker DEBUG PluginManager 'Lookup' found 13 plugins
+2018-05-12 17:46:32,041 Test worker DEBUG Building Plugin[name=AppenderRef, class=org.apache.logging.log4j.core.config.AppenderRef].
+2018-05-12 17:46:32,057 Test worker DEBUG PluginManager 'TypeConverter' found 26 plugins
+2018-05-12 17:46:32,057 Test worker DEBUG createAppenderRef(ref="STDOUT", level="null", Filter=null)
+2018-05-12 17:46:32,057 Test worker DEBUG Building Plugin[name=root, class=org.apache.logging.log4j.core.config.LoggerConfig$RootLogger].
+2018-05-12 17:46:32,057 Test worker DEBUG createLogger(additivity="null", level="DEBUG", includeLocation="null", ={STDOUT}, ={}, Configuration(PropertiesConfig), Filter=null)
+2018-05-12 17:46:32,057 Test worker DEBUG Building Plugin[name=loggers, class=org.apache.logging.log4j.core.config.LoggersPlugin].
+2018-05-12 17:46:32,073 Test worker DEBUG createLoggers(={root})
+2018-05-12 17:46:32,073 Test worker DEBUG Building Plugin[name=filter, class=org.apache.logging.log4j.core.filter.ThresholdFilter].
+2018-05-12 17:46:32,073 Test worker DEBUG createFilter(level="DEBUG", onMatch="null", onMismatch="null")
+2018-05-12 17:46:32,073 Test worker DEBUG Building Plugin[name=layout, class=org.apache.logging.log4j.core.layout.PatternLayout].
+2018-05-12 17:46:32,073 Test worker DEBUG PatternLayout$Builder(pattern="%m%n", PatternSelector=null, Configuration(PropertiesConfig), Replace=null, charset="null", alwaysWriteExceptions="null", disableAnsi="null", noConsoleNoAnsi="null", header="null", footer="null")
+2018-05-12 17:46:32,073 Test worker DEBUG PluginManager 'Converter' found 44 plugins
+2018-05-12 17:46:32,073 Test worker DEBUG Building Plugin[name=appender, class=org.apache.logging.log4j.core.appender.ConsoleAppender].
+2018-05-12 17:46:32,073 Test worker DEBUG ConsoleAppender$Builder(target="null", follow="null", direct="null", bufferedIo="null", bufferSize="null", immediateFlush="null", ignoreExceptions="null", PatternLayout(%m%n), name="STDOUT", Configuration(PropertiesConfig), ThresholdFilter(DEBUG))
+2018-05-12 17:46:32,073 Test worker DEBUG Starting OutputStreamManager SYSTEM_OUT.false.false
+2018-05-12 17:46:32,073 Test worker DEBUG Building Plugin[name=appenders, class=org.apache.logging.log4j.core.config.AppendersPlugin].
+2018-05-12 17:46:32,073 Test worker DEBUG createAppenders(={STDOUT})
+2018-05-12 17:46:32,073 Test worker DEBUG Building Plugin[name=filter, class=org.apache.logging.log4j.core.filter.ThresholdFilter].
+2018-05-12 17:46:32,073 Test worker DEBUG createFilter(level="DEBUG", onMatch="null", onMismatch="null")
+2018-05-12 17:46:32,073 Test worker DEBUG Configuration org.apache.logging.log4j.core.config.properties.PropertiesConfiguration@1b29f014 initialized
+2018-05-12 17:46:32,073 Test worker DEBUG Starting configuration org.apache.logging.log4j.core.config.properties.PropertiesConfiguration@1b29f014
+2018-05-12 17:46:32,073 Test worker DEBUG Started configuration org.apache.logging.log4j.core.config.properties.PropertiesConfiguration@1b29f014 OK.
+2018-05-12 17:46:32,088 Test worker DEBUG Shutting down OutputStreamManager SYSTEM_OUT.false.false-1
+2018-05-12 17:46:32,088 Test worker DEBUG Shut down OutputStreamManager SYSTEM_OUT.false.false-1, all resources released: true
+2018-05-12 17:46:32,088 Test worker DEBUG Appender DefaultConsole-1 stopped with status true
+2018-05-12 17:46:32,088 Test worker DEBUG Stopped org.apache.logging.log4j.core.config.DefaultConfiguration@14120868 OK
+2018-05-12 17:46:32,104 Test worker DEBUG Registering MBean org.apache.logging.log4j2:type=659e0bfd
+2018-05-12 17:46:32,104 Test worker DEBUG Registering MBean org.apache.logging.log4j2:type=659e0bfd,component=StatusLogger
+2018-05-12 17:46:32,104 Test worker DEBUG Registering MBean org.apache.logging.log4j2:type=659e0bfd,component=ContextSelector
+2018-05-12 17:46:32,104 Test worker DEBUG Registering MBean org.apache.logging.log4j2:type=659e0bfd,component=Loggers,name=
+2018-05-12 17:46:32,104 Test worker DEBUG Registering MBean org.apache.logging.log4j2:type=659e0bfd,component=Appenders,name=STDOUT
+2018-05-12 17:46:32,120 Test worker DEBUG org.apache.logging.log4j.core.util.SystemClock does not support precise timestamps.
+2018-05-12 17:46:32,120 Test worker DEBUG Reconfiguration complete for context[name=659e0bfd] at URI D:\J\studentsproj\build\resources\test\log4j2.properties (org.apache.logging.log4j.core.LoggerContext@70308d27) with optional ClassLoader: null
+2018-05-12 17:46:32,120 Test worker DEBUG Shutdown hook enabled. Registering a new one.
+2018-05-12 17:46:32,120 Test worker DEBUG LoggerContext[name=659e0bfd, org.apache.logging.log4j.core.LoggerContext@70308d27] started OK.

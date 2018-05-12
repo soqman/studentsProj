@@ -7,9 +7,9 @@ import ru.innopolis.vasiliev.studentsproj.pojo.UserType;
 import java.sql.SQLException;
 
 public interface UserDAO {
-    public User getUserById(int id)throws SQLException;
-    public User getUserByLogin(String login)throws SQLException;
-    public int addUser(String login,String passwordHash,UserType userType)throws SQLException;
-    public boolean updateUser(User user)throws SQLException;
-    public boolean deleteUserById(int id)throws SQLException;
+    User getUserById(int id)throws SQLException;
+    User getUserByLogin(String login)throws SQLException;
+    int addUser(String login,String passwordHash,UserType userType)throws SQLException;
+    boolean updateUser(User user)throws SQLException;
+    boolean deleteUserById(int id)throws SQLException;
 }

@@ -8,16 +8,16 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return user_id == user.user_id;
+        return userId == user.userId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(user_id);
+        return Objects.hash(userId);
     }
 
-    public User(int user_id, String login, String passwordHash, UserType userType) {
-        this.user_id=user_id;
+    public User(int userId, String login, String passwordHash, UserType userType) {
+        this.userId=userId;
         this.login = login;
         this.passwordHash = passwordHash;
         this.userType = userType;
@@ -50,14 +50,14 @@ public class User {
     private String login;
     private String passwordHash;
     private UserType userType;
-    private int user_id;
+    private int userId;
 
-    public int getUser_id() {
-        return user_id;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }
 

@@ -1,12 +1,10 @@
 package ru.innopolis.vasiliev.studentsproj.db.dao;
 
-
 import ru.innopolis.vasiliev.studentsproj.pojo.Teacher;
-
 import java.sql.SQLException;
-import java.util.HashSet;
+import java.util.Set;
 
-public interface TeacherDAO {
-    public Teacher getTeacherBySubjectId(int subject_id)throws SQLException;
-    public HashSet<Teacher> getAllTeachers()throws SQLException;;
+interface TeacherDAO {
+    Teacher getTeacherBySubjectId(int subjectId)throws SQLException;
+    Set<Teacher> getAllTeachers()throws SQLException;
 }

@@ -2,6 +2,7 @@ package ru.innopolis.vasiliev.studentsproj.controller;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import ru.innopolis.vasiliev.studentsproj.controller.utils.ConstHolder;
 import ru.innopolis.vasiliev.studentsproj.db.dao.*;
 import ru.innopolis.vasiliev.studentsproj.pojo.Subject;
 import ru.innopolis.vasiliev.studentsproj.service.SubjectsEditorService;
@@ -17,29 +18,30 @@ import java.util.HashMap;
 import java.util.Set;
 
 public class DashboardServlet extends HttpServlet {
-    private final static Logger logger = LogManager.getLogger(AuthServlet.class);
-    private final static String parameter_page = "page";
-    private final static String parameter_login = "login";
-    private final static SubjectsEditorService subjectEditorService = new SubjectsEditorService();
-    private final static GradeDAO gradeDAO=new GradeDAOImpl();
-    private final static UserDAO userDAO=new UserDAOImpl();
-    private final static SubjectDAO subjectDAO=new SubjectDAOImpl();
+    private static final Logger logger = LogManager.getLogger(AuthServlet.class);
+    private static final SubjectsEditorService subjectEditorService = new SubjectsEditorService();
+    private static final GradeDAO gradeDAO=new GradeDAOImpl();
+    private static final UserDAO userDAO=new UserDAOImpl();
+    private static final SubjectDAO subjectDAO=new SubjectDAOImpl();
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding("UTF-8");
-        resp.setCharacterEncoding("UTF-8");
-        switch (checkParameter(req.getParameter(parameter_page))) {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) {
+
+        switch (checkParameter(req.getParameter(ConstHolder.PARAM_PAGE))) {
             case 1:
-                req.setAttribute("content", getSubjectsContent((String)req.getSession().getAttribute(parameter_login)));
+                req.setAttribute(ConstHolder.ATR_CONTENT, getSubjectsContent((String)req.getSession().getAttribute(ConstHolder.PARAM_LGN)));
                 break;
             case 2:
-                req.setAttribute("content", "list of students");
+                req.setAttribute(ConstHolder.ATR_CONTENT, "list of students");
                 break;
             default:
                 break;
         }
-        req.getRequestDispatcher("/dash.jsp").forward(req, resp);
+        try {
+            req.getRequestDispatcher(ConstHolder.JSP_DASHBOARD).forward(req, resp);
+        } catch (ServletException|IOException e) {
+            logger.error(e.getMessage());
+        }
     }
 
     private ArrayList getSubjectsContent(String login){
@@ -49,30 +51,27 @@ public class DashboardServlet extends HttpServlet {
         for (Subject subject:subjects){
             map.put("name",subject.getName());
             try {
-                map.put("teacher",userDAO.getUserById(subject.getTeacherId()).getLogin());
-            } catch (SQLException e) {
-                map.put("teacher","");
-            }catch (NullPointerException o){
-                map.put("teacher","");
+                map.put(ConstHolder.ATR_TEACHER,userDAO.getUserById(subject.getTeacherId()).getLogin());
+            } catch (SQLException|NullPointerException e) {
+                map.put(ConstHolder.ATR_TEACHER,"");
             }
             try {
-                map.put("grade",gradeDAO.getGrade(userDAO.getUserByLogin(login).getUser_id(),subject.getSubjectId()).toString());
-            } catch (SQLException e) {
-                map.put("grade","");
-            } catch (NullPointerException o){
-                map.put("grade","");
+                map.put(ConstHolder.ATR_GRADE,gradeDAO.getGrade(userDAO.getUserByLogin(login).getUserId(),subject.getSubjectId()).toString());
+            } catch (SQLException|NullPointerException e) {
+                map.put(ConstHolder.ATR_GRADE,"");
             }
-            content.add(new HashMap(map));
+            content.add(new HashMap<>(map));
         }
         return content;
     }
 
-    private int checkParameter(String parameter_page) {
+    private int checkParameter(String parameterPage) {
         int res = 0;
-        if (parameter_page != null) {
+        if (parameterPage != null) {
             try {
-                res = Integer.parseInt(parameter_page);
+                res = Integer.parseInt(parameterPage);
             } catch (NumberFormatException e) {
+                logger.error(e.getMessage());
             }
         }
         return res;

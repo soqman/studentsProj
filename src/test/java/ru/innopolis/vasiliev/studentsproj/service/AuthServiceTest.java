@@ -1,7 +1,5 @@
 package ru.innopolis.vasiliev.studentsproj.service;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.*;
 import org.mockito.Mockito;
 import ru.innopolis.vasiliev.studentsproj.db.dao.UserDAOImpl;
@@ -15,9 +13,7 @@ import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
 public class AuthServiceTest {
-    private final static Logger logger=LogManager.getLogger(AuthServiceTest.class);
-    private static AuthService authService=new AuthService();
-    private static int user_id;
+    private static final AuthService authService=new AuthService();
     private static final String VALID_LOGIN="vlogin";
     private static final String INVALID_LOGIN="ivlogin";
     private static final String VALID_PASS="1";
@@ -31,12 +27,12 @@ public class AuthServiceTest {
         when(userDAO.getUserByLogin(VALID_LOGIN)).thenReturn(user);
         when(userDAO.getUserByLogin(INVALID_LOGIN)).thenReturn(null);
         AuthResult authResult = authService.checkAccess(VALID_LOGIN,VALID_PASS,userDAO);
-        assertTrue(authResult==AuthResult.ACCESS_GRANTED_ADMINISTRATOR);
+        assertEquals(AuthResult.ACCESS_GRANTED_ADMINISTRATOR,authResult);
         authResult = authService.checkAccess(INVALID_LOGIN,VALID_PASS,userDAO);
-        assertTrue(authResult==AuthResult.INVALID_LOGIN);
+        assertEquals(AuthResult.INVALID_LOGIN,authResult);
         authResult = authService.checkAccess(VALID_LOGIN,INVALID_PASS,userDAO);
-        assertTrue(authResult==AuthResult.INVALID_PASSWORD);
+        assertEquals(AuthResult.INVALID_PASSWORD,authResult);
         authResult = authService.checkAccess(INVALID_LOGIN,VALID_PASS,userDAO);
-        assertTrue(authResult==AuthResult.INVALID_LOGIN);
+        assertEquals(AuthResult.INVALID_LOGIN,authResult);
     }
 }
