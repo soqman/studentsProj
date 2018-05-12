@@ -9,9 +9,9 @@ import ru.innopolis.vasiliev.studentsproj.pojo.User;
 import java.sql.SQLException;
 
 public class AuthService {
-    final static Logger logger=LogManager.getLogger(AuthService.class);
+    private static final Logger logger=LogManager.getLogger(AuthService.class);
     public AuthResult checkAccess(String login, String passwordHash, UserDAO userDAO){
-        User user=null;
+        User user;
         try {
             user = userDAO.getUserByLogin(login);
             if (user==null) return AuthResult.INVALID_LOGIN;

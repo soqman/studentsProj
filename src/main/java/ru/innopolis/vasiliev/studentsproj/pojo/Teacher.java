@@ -1,7 +1,7 @@
 package ru.innopolis.vasiliev.studentsproj.pojo;
 
 public class Teacher extends User{
-    public Teacher(int user_id,String login, String passwordHash) {
-        super(user_id,login, passwordHash, UserType.Teacher);
+    public Teacher(int userId,String login, String passwordHash) {
+        super(userId,login, passwordHash, UserType.Teacher);
     }
 }

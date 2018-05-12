@@ -8,8 +8,8 @@ import java.io.IOException;
 
 public class AuthFilter implements Filter {
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-
+    public void init(FilterConfig filterConfig){
+        //nothing to do
     }
 
     @Override
@@ -26,6 +26,6 @@ public class AuthFilter implements Filter {
 
     @Override
     public void destroy() {
-
+        //nothing to do
     }
 }

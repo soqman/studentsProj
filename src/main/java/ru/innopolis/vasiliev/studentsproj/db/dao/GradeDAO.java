@@ -5,7 +5,7 @@ import ru.innopolis.vasiliev.studentsproj.pojo.Grade;
 import java.sql.SQLException;
 
 public interface GradeDAO {
-    public Grade getGrade(int student_id, int subject_id)throws SQLException;
-    public boolean setGrade(int student_id, int subject_id, Grade grade)throws SQLException;
-    public boolean deleteGrade(int student_id, int subject_id)throws SQLException;
+    Grade getGrade(int studentId, int subjectId)throws SQLException;
+    boolean setGrade(int studentId, int subjectId, Grade grade)throws SQLException;
+    boolean deleteGrade(int studentId, int subjectId)throws SQLException;
 }

@@ -1,7 +1,7 @@
 package ru.innopolis.vasiliev.studentsproj.pojo;
 
-public class Administrator extends User {
-    public Administrator(int user_id,String login, String passwordHash) {
-        super(user_id,login, passwordHash, UserType.Administrator);
+class Administrator extends User {
+    public Administrator(int userId,String login, String passwordHash) {
+        super(userId,login, passwordHash, UserType.Administrator);
     }
 }

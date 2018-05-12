@@ -5,7 +5,7 @@
   Time: 15:50
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en" class="no-js">
 <head>
@@ -15,15 +15,18 @@
     <title>Dashboard</title>
     <meta name="description" content="Dashboard">
     <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="/images/favicon.ico">
-    <link rel=”icon” type=”image/x-icon” href=”favicon.ico”/>
+    <link rel="shortcut icon" href="<c:url value="/images/favicon.ico"/>">
+    <link rel=”icon” type=”image/x-icon” href="<c:url value="/images/favicon.ico"/>"/>
 </head>
 <body>
+<jsp:useBean id="content" scope="session" type="ru.innopolis.vasiliev.studentsproj.controller.utils.ConstHolder"/>
+<jsp:useBean id="login" scope="session" type="ru.innopolis.vasiliev.studentsproj.controller.utils.ConstHolder"/>
+<jsp:useBean id="userType" scope="session" type="ru.innopolis.vasiliev.studentsproj.pojo.UserType"/>
 <header>
     <div id="logo">StudentsProject</div>
     <nav>
         <ul>
-            <jsp:useBean id="userType" scope="session" type="ru.innopolis.vasiliev.studentsproj.pojo.UserType"/>
+
             <c:if test="${userType.toString()=='Administrator'}">
             <li><a href="${pageContext.request.contextPath}/dashboard">Home</a>
             <li><a href="${pageContext.request.contextPath}/dashboard?page=1">Subjects</a>
@@ -42,7 +45,7 @@
     </nav>
 </header>
 <section>
-    <strong>Hello, ${login} (${userType})</strong><span> <a href="/auth?logout=1">logout</a></span>
+    <strong>Hello, ${login} (${userType})</strong><span> <a href="<c:url value="/auth?logout=1"/>">logout</a></span>
 </section>
 <section id="pageContent">
     <main role="main">
